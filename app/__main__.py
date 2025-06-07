@@ -1,9 +1,9 @@
-from visao.janela_principal import JanelaPrincipal
+from controlador.controlador import Controlador
 
 # Chaves de API
 pinecone_api_key = ""
 huggingfacehub_api_key = ""
 
 if __name__ == '__main__':
-    janela_principal = JanelaPrincipal()
-    janela_principal.mainloop()
+    controlador = Controlador(pinecone_api_key, huggingfacehub_api_key)
+    controlador.janela_principal.mainloop()
