@@ -8,6 +8,7 @@ class AssistenteConversacional:
         self.__inicializar_pinecone(pinecone_api_key)
 
     def __inicializar_modelo_pretreinado(self, huggingfacehub_api_key):
+        login(huggingfacehub_api_key)
         model_name = "Qwen/Qwen2.5-1.5B"
         tokenizer = AutoTokenizer.from_pretrained(model_name)
         model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
