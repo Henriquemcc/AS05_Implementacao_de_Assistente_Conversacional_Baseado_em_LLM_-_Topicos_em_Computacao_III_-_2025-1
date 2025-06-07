@@ -17,12 +17,16 @@ class FrameChat(tkinter.Frame):
         # Caixa de entrada de texto
         self.entrada_texto = tkinter.Entry(self.entrada_frame)
         self.entrada_texto.pack(side="left", padx=5, fill="x", expand=True)
-        self.entrada_texto.bind("<Return>", self.__enviar_mensagem())
+        self.entrada_texto.bind("<Return>", self.__acao_enviar_mensagem())
 
         # Botão enviar
-        self.botao_enviar = tkinter.Button(self.entrada_frame, text="Enviar", command=self.__enviar_mensagem)
+        self.botao_enviar = tkinter.Button(self.entrada_frame, text="Enviar", command=self.__acao_enviar_mensagem)
         self.botao_enviar.pack(side="right", padx=5)
 
-    def __enviar_mensagem(self):
-        pass
+    def __adicionar_mensagens_no_historico(self, mensagens):
+        for mensagem in mensagens:
+            self.historico.insert(mensagem.indice, str(mensagem))
 
+    def __acao_enviar_mensagem(self):
+        mensagem = self.entrada_texto.get()
+        self.controlador.enviar_mensagem(mensagem, lambda mensagens: self.__adicionar_mensagens_no_historico(mensagens))
