@@ -1,9 +1,11 @@
 import tkinter
 
-from controlador.controlador import Controlador
-
 class JanelaPrincipal(tkinter.Tk):
-    def __init__(self, *args, **kwargs):
+    def __init__(self, controlador, *args, **kwargs):
+
+        # Armazenando controlador
+        self.controlador = controlador
+
         # Chamando o pai
         tkinter.Tk.__init__(self, *args, **kwargs)
 
