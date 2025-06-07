@@ -41,8 +41,16 @@ class AssistenteConversacional:
             }
         )
 
+        # Convertendo resultados
+        resultados = []
+        for resultado in resultados_pinecone['result']['hits']:
+            resultados.append(resultado['fields']['text'])
+        resultados = " ".join(resultados)
+
         # Fazendo o ChatBot responder
-        return self.chatbot(
+        resposta =  self.chatbot(
             {'question': pergunta,
-             'context': resultados_pinecone
+             'context': resultados
         })
+
+        return resposta['answer']
