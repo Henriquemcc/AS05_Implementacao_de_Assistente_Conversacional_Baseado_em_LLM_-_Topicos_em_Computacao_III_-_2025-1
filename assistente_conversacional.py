@@ -19,6 +19,10 @@ class AssistenteConversacional:
         self.__inicializar_modelo_pretreinado(huggingfacehub_api_key)
         self.__inicializar_pinecone(pinecone_api_key)
 
+    def __del__(self):
+        # Apagando namespace
+        self.pinecone.delete(delete_all=True, namespace=self.pinecone_index_name_space)
+
     def __inicializar_modelo_pretreinado(self, huggingfacehub_api_key):
         login(huggingfacehub_api_key)
         model_name = "distilbert-base-uncased-distilled-squad"
