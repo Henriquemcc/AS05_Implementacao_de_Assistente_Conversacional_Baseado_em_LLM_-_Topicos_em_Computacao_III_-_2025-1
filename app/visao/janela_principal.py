@@ -25,4 +25,6 @@ class JanelaPrincipal(tkinter.Tk):
             command=lambda: self.controlador.abrir_pasta_pdf()
         )
 
+        barra_menu.add_cascade(label="Arquivo", menu=menu_arquivo)
+
         self.config(menu=barra_menu)
