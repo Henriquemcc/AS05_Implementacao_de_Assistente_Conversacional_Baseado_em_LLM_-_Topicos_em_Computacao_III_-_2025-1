@@ -14,6 +14,14 @@ def ler_texto_pdf(caminho: str) -> str:
         texto += pagina.extract_text() + "\n"
     return texto
 
+def dividir_em_chunks(texto, tamanho_max=500):
+    palavras = texto.split()
+    chunks = []
+    for i in range(0, len(palavras), tamanho_max):
+        chunk = " ".join(palavras[i:i+tamanho_max])
+        chunks.append(chunk)
+    return chunks
+
 class AssistenteConversacional:
     def __init__(self, pinecone_api_key, huggingfacehub_api_key):
         self.pinecone_index_name_space = gerar_random_string()
@@ -35,24 +43,27 @@ class AssistenteConversacional:
     def __inicializar_pinecone(self, pinecone_api_key):
         self.pinecone = Pinecone(pinecone_api_key)
 
-    def indexar_documentos(self, documentos):
+    def indexar_documentos(self, documentos, delay: bool = True):
         if self.pinecone_index is None:
             self.pinecone_index = self.pinecone.Index(self.pinecone_index_name)
         self.pinecone_index.upsert_records(
             namespace=self.pinecone_index_name_space,
             records=documentos
         )
-        time.sleep(60)
+        if delay:
+            time.sleep(60)
 
     def indexar_documentos_pdf(self, pasta: str):
         for arquivo in os.listdir(pasta):
             if arquivo.lower().endswith(".pdf"):
                 caminho_pdf = os.path.join(pasta, arquivo)
                 texto = ler_texto_pdf(caminho_pdf)
-                self.indexar_documentos([{
-                    "id": arquivo,
-                    "text": texto
-                }])
+                chunks = dividir_em_chunks(texto)
+                for index, chunk in enumerate(chunks):
+                    self.indexar_documentos([{
+                        "id": "{}-{}".format(arquivo, index),
+                        "text": chunk
+                    }], delay=False)
 
     def perguntar(self, pergunta):
         # Obtendo os resultados do Pinecone
