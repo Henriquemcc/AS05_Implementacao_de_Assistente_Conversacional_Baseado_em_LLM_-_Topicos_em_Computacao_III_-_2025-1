@@ -6,7 +6,7 @@ from utils import gerar_random_string
 class AssistenteConversacional:
     def __init__(self, pinecone_api_key, huggingfacehub_api_key):
         self.pinecone_index = None
-        self.pinecone_index_name = "AS05-TopicosIII"
+        self.pinecone_index_name = "as05-topicos3"
         self.pinecone_index_name_space = None
         self.pinecone_top_k = 3
         self.__inicializar_modelo_pretreinado(huggingfacehub_api_key)
