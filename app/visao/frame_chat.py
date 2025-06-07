@@ -25,7 +25,8 @@ class FrameChat(tkinter.Frame):
 
     def __adicionar_mensagens_no_historico(self, mensagens):
         for mensagem in mensagens:
-            self.historico.insert(mensagem.indice, str(mensagem))
+            self.historico.insert(tkinter.END, str(mensagem)+'\n')
+            self.historico.see(tkinter.END)
 
     def __acao_enviar_mensagem(self):
         mensagem = self.entrada_texto.get()
