@@ -1,5 +1,8 @@
 import tkinter
 
+from visao.frame_principal import FramePrincipal
+
+
 class JanelaPrincipal(tkinter.Tk):
     def __init__(self, controlador, *args, **kwargs):
 
@@ -30,3 +33,7 @@ class JanelaPrincipal(tkinter.Tk):
         barra_menu.add_cascade(label="Arquivo", menu=menu_arquivo)
 
         self.config(menu=barra_menu)
+
+        # Frame principal
+        frame_principal = FramePrincipal(self, controlador)
+        frame_principal.pack()
