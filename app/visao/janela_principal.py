@@ -3,9 +3,12 @@ import tkinter
 from controlador.controlador import Controlador
 
 class JanelaPrincipal(tkinter.Tk):
-    def __init__(self, controlador: Controlador, *args, **kwargs):
+    def __init__(self, pinecone_api_key, huggingfacehub_api_key, *args, **kwargs):
         # Chamando o pai
         tkinter.Tk.__init__(self, *args, **kwargs)
+
+        # Criando controlador
+        self.controlador = Controlador(pinecone_api_key, huggingfacehub_api_key)
 
         # Definindo o título
         self.title("AS05: Implementação de Assistente Conversacional Baseado em LLM")
@@ -22,5 +25,5 @@ class JanelaPrincipal(tkinter.Tk):
         menu_arquivo = tkinter.Menu(barra_menu, tearoff=0)
         menu_arquivo.add_command(
             label="Abrir pasta com arquivos PDF",
-            command=lambda: controlador.abrir_pasta_pdf()
+            command=lambda: self.controlador.abrir_pasta_pdf()
         )
