@@ -20,3 +20,6 @@ class Controlador:
 
         # Indexando arquivos PDF
         self.assistente_conversacional.indexar_documentos_pdf(self.caminho)
+
+    def enviar_mensagem(self):
+        pass
