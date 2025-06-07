@@ -28,10 +28,11 @@ class AssistenteConversacional:
     def __inicializar_pinecone(self, pinecone_api_key):
         self.pinecone = Pinecone(pinecone_api_key)
 
-    def indexar_documentos(self, documentos, nome_indice, namespace):
+    def indexar_documentos(self, documentos):
+        self.pinecone_index_name_space = gerar_random_string()
         if self.pinecone_index is None:
-            self.pinecone_index = self.pinecone.Index(nome_indice)
+            self.pinecone_index = self.pinecone.Index(self.pinecone_index_name)
         self.pinecone_index.upsert_records(
-            namespace=namespace,
+            namespace=self.pinecone_index_name_space,
             records=documentos
         )
