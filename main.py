@@ -1,6 +1,13 @@
+import string
+
 from huggingface_hub import login
 from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 from pinecone import Pinecone
+import random
+
+
+def gerar_random_string(length = 10) -> str:
+    return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
 
 class AssistenteConversacional:
     def __init__(self, pinecone_api_key, huggingfacehub_api_key):
