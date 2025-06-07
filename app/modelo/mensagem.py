@@ -5,3 +5,6 @@ class Mensagem:
         self.autor = autor
         self.data = data
         self.conteudo = conteudo
+
+    def __str__(self) -> str:
+        return "[{}] {}: {}".format(self.data.strftime("%Y-%m-%d %H:%M:%S"), self.autor, self.conteudo)
