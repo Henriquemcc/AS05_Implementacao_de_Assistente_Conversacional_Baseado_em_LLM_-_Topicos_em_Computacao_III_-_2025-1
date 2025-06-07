@@ -2,7 +2,13 @@ from huggingface_hub import login
 from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 from pinecone import Pinecone
 from utils import gerar_random_string
+from pdfminer.high_level import extract_text
 import time
+import os
+
+
+def ler_texto_pdf(caminho):
+    return extract_text(caminho)
 
 class AssistenteConversacional:
     def __init__(self, pinecone_api_key, huggingfacehub_api_key):
@@ -29,6 +35,13 @@ class AssistenteConversacional:
             records=documentos
         )
         time.sleep(60)
+
+    def indexar_documentos_pdf(self, pasta: str):
+        for arquivo in os.listdir(pasta):
+            if arquivo.lower().endswith(".pdf"):
+                caminho_pdf = os.path.join(pasta, arquivo)
+                texto = ler_texto_pdf(caminho_pdf)
+                self.indexar_documentos([texto])
 
     def perguntar(self, pergunta):
         # Obtendo os resultados do Pinecone
