@@ -1,5 +1,5 @@
 from tkinter import filedialog
-from ..modelo.assistente_conversacional import AssistenteConversacional
+from modelo.assistente_conversacional import AssistenteConversacional
 
 class Controlador:
     def __init__(self, pinecone_api_key, huggingfacehub_api_key):
