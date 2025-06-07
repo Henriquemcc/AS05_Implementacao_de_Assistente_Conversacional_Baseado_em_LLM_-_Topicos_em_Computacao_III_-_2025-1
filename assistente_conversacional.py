@@ -6,9 +6,9 @@ import time
 
 class AssistenteConversacional:
     def __init__(self, pinecone_api_key, huggingfacehub_api_key):
+        self.pinecone_index_name_space = gerar_random_string()
         self.pinecone_index = None
         self.pinecone_index_name = "as05-topicos3"
-        self.pinecone_index_name_space = None
         self.pinecone_top_k = 3
         self.__inicializar_modelo_pretreinado(huggingfacehub_api_key)
         self.__inicializar_pinecone(pinecone_api_key)
@@ -22,7 +22,6 @@ class AssistenteConversacional:
         self.pinecone = Pinecone(pinecone_api_key)
 
     def indexar_documentos(self, documentos):
-        self.pinecone_index_name_space = gerar_random_string()
         if self.pinecone_index is None:
             self.pinecone_index = self.pinecone.Index(self.pinecone_index_name)
         self.pinecone_index.upsert_records(
