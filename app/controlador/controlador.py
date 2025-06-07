@@ -1,6 +1,5 @@
 from tkinter import filedialog
 from modelo.assistente_conversacional import AssistenteConversacional
-from visao.janela_principal import JanelaPrincipal
 
 class Controlador:
     def __init__(self, pinecone_api_key, huggingfacehub_api_key):
@@ -10,9 +9,6 @@ class Controlador:
 
         # Criando assistente conversacional
         self.assistente_conversacional = AssistenteConversacional(pinecone_api_key, huggingfacehub_api_key)
-
-        # Criando janela principal
-        self.janela_principal = JanelaPrincipal(self)
 
     def abrir_pasta_pdf(self) -> None:
         # Obtendo caminho das pastas
