@@ -1,3 +1,5 @@
+import re
+
 from huggingface_hub import login
 from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 from pinecone import Pinecone
@@ -19,11 +21,13 @@ def ler_texto_pdf(caminho: str) -> str:
     return texto
 
 def dividir_em_chunks(texto, tamanho_max=500):
-    palavras = texto.split()
     chunks = []
-    for i in range(0, len(palavras), tamanho_max):
-        chunk = " ".join(palavras[i:i+tamanho_max])
-        chunks.append(chunk)
+    paragrafos = re.split(r'\n\s*\n', texto)
+    for paragrafo in paragrafos:
+        palavras = paragrafo.split()
+        for i in range(0, len(palavras), tamanho_max):
+            chunk = " ".join(palavras[i:i+tamanho_max])
+            chunks.append(chunk)
     return chunks
 
 class AssistenteConversacional:
