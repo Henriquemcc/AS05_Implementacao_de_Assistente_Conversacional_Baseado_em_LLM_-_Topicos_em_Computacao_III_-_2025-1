@@ -17,7 +17,7 @@ class FrameChat(tkinter.Frame):
         # Caixa de entrada de texto
         self.entrada_texto = tkinter.Entry(self.entrada_frame)
         self.entrada_texto.pack(side="left", padx=5, fill="x", expand=True)
-        self.entrada_texto.bind("<Return>", self.__acao_enviar_mensagem())
+        self.entrada_texto.bind("<Return>", self.__acao_enviar_mensagem)
 
         # Botão enviar
         self.botao_enviar = tkinter.Button(self.entrada_frame, text="Enviar", command=self.__acao_enviar_mensagem)
