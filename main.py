@@ -36,3 +36,19 @@ class AssistenteConversacional:
             namespace=self.pinecone_index_name_space,
             records=documentos
         )
+
+    def perguntar(self, pergunta):
+        # Obtendo os resultados do Pinecone
+        resultados_pinecone = self.pinecone_index.search(
+            namespace = self.pinecone_index_name_space,
+            query = {
+                "inputs": {"text": pergunta},
+                "top_k": self.pinecone_top_k
+            }
+        )
+
+        # Fazendo o ChatBot responder
+        return self.chatbot(
+            {'question': pergunta,
+             'context': resultados_pinecone
+        })
