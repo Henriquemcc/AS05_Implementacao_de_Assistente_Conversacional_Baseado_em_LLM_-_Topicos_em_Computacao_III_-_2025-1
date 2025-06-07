@@ -17,7 +17,7 @@ class JanelaPrincipal(tkinter.Tk):
 
         # Configurando o tamanho da janela
         screen_width = 500
-        screen_height = 400
+        screen_height = 500
         self.geometry(f"{screen_width}x{screen_height}+0+0")
 
         # Barra de menu
