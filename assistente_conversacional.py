@@ -2,13 +2,17 @@ from huggingface_hub import login
 from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 from pinecone import Pinecone
 from utils import gerar_random_string
-from pdfminer.high_level import extract_text
+from PyPDF2 import PdfReader
 import time
 import os
 
 
-def ler_texto_pdf(caminho):
-    return extract_text(caminho)
+def ler_texto_pdf(caminho: str) -> str:
+    pdf_reader = PdfReader(caminho)
+    texto = ""
+    for pagina in pdf_reader.pages:
+        texto += pagina.extract_text() + "\n"
+    return texto
 
 class AssistenteConversacional:
     def __init__(self, pinecone_api_key, huggingfacehub_api_key):
