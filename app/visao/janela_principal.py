@@ -1,6 +1,6 @@
 import tkinter
 
-from visao.frame_principal import FramePrincipal
+from visao.frame_chat import FrameChat
 
 
 class JanelaPrincipal(tkinter.Tk):
@@ -34,6 +34,6 @@ class JanelaPrincipal(tkinter.Tk):
 
         self.config(menu=barra_menu)
 
-        # Frame principal
-        frame_principal = FramePrincipal(self, controlador)
-        frame_principal.pack()
+        # Frame do Chat
+        self.frame_chat = FrameChat(self, self.controlador)
+        self.frame_chat.pack(padx=10, pady=10, fill="both", expand=True)
