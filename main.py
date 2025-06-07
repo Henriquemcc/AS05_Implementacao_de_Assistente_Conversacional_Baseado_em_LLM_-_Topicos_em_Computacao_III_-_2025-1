@@ -12,6 +12,9 @@ def gerar_random_string(length = 10) -> str:
 class AssistenteConversacional:
     def __init__(self, pinecone_api_key, huggingfacehub_api_key):
         self.pinecone_index = None
+        self.pinecone_index_name = "indice_assistente_conversacional"
+        self.pinecone_index_name_space = None
+        self.pinecone_top_k = 3
         self.__inicializar_modelo_pretreinado(huggingfacehub_api_key)
         self.__inicializar_pinecone(pinecone_api_key)
 
