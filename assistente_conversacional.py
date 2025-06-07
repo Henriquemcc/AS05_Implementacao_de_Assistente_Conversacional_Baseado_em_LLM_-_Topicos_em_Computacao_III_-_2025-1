@@ -49,7 +49,10 @@ class AssistenteConversacional:
             if arquivo.lower().endswith(".pdf"):
                 caminho_pdf = os.path.join(pasta, arquivo)
                 texto = ler_texto_pdf(caminho_pdf)
-                self.indexar_documentos([texto])
+                self.indexar_documentos([{
+                    "id": arquivo,
+                    "text": texto
+                }])
 
     def perguntar(self, pergunta):
         # Obtendo os resultados do Pinecone
