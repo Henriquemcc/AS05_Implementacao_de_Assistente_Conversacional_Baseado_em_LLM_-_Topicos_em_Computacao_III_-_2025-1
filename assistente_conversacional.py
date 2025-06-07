@@ -15,10 +15,8 @@ class AssistenteConversacional:
 
     def __inicializar_modelo_pretreinado(self, huggingfacehub_api_key):
         login(huggingfacehub_api_key)
-        model_name = "Qwen/Qwen2.5-1.5B"
-        tokenizer = AutoTokenizer.from_pretrained(model_name)
-        model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
-        self.chatbot = pipeline("text-generation", model=model, tokenizer=tokenizer)
+        model_name = "distilbert-base-uncased-distilled-squad"
+        self.chatbot = pipeline("question-answering", model=model_name)
 
     def __inicializar_pinecone(self, pinecone_api_key):
         self.pinecone = Pinecone(pinecone_api_key)
