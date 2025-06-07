@@ -1,11 +1,15 @@
 from huggingface_hub import login
 from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 from pinecone import Pinecone
-from utils import gerar_random_string
 from PyPDF2 import PdfReader
 import time
 import os
+import random
+import string
 
+
+def gerar_random_string(length = 10) -> str:
+    return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
 
 def ler_texto_pdf(caminho: str) -> str:
     pdf_reader = PdfReader(caminho)
