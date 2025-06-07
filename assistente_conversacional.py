@@ -2,6 +2,7 @@ from huggingface_hub import login
 from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 from pinecone import Pinecone
 from utils import gerar_random_string
+import time
 
 class AssistenteConversacional:
     def __init__(self, pinecone_api_key, huggingfacehub_api_key):
@@ -30,6 +31,7 @@ class AssistenteConversacional:
             namespace=self.pinecone_index_name_space,
             records=documentos
         )
+        time.sleep(60)
 
     def perguntar(self, pergunta):
         # Obtendo os resultados do Pinecone
