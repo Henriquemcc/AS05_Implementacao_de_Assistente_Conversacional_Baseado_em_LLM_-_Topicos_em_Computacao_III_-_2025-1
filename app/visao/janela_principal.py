@@ -38,6 +38,12 @@ class JanelaPrincipal(tkinter.Tk):
         self.frame_chat = FrameChat(self, self.controlador)
         self.frame_chat.pack(padx=10, pady=10, fill="both", expand=True)
 
+        # Barra de Status
+        self.barra_status_var = tkinter.StringVar()
+        self.barra_status_var.set("Pronto")
+        self.barra_status = tkinter.Label(self, textvariable=self.barra_status_var, bd=1, relief=tkinter.SUNKEN, anchor='w')
+        self.barra_status.pack(side="bottom", fill='x')
+
     def set_cursor(self, state):
         # Configurando o cursor na janela
         self.config(cursor=state)
@@ -49,3 +55,7 @@ class JanelaPrincipal(tkinter.Tk):
         # Configurando o cursor na barra de menu
         self.barra_menu.config(cursor=state)
         self.barra_menu.update()
+
+        # Configurando o cursor na barra de status
+        self.barra_status.config(cursor=state)
+        self.barra_status.update()
