@@ -23,8 +23,14 @@ class Controlador:
         # Obtendo caminho das pastas
         self.caminho = filedialog.askdirectory(title="Pasta com documentos PDF")
 
+        # Exibindo cursor de relógio
+        self.janela_principal.set_cursor("watch")
+
         # Indexando arquivos PDF
         self.assistente_conversacional.indexar_documentos_pdf(self.caminho)
+
+        # Exibindo cursor padrão
+        self.janela_principal.set_cursor("")
 
     def enviar_mensagem(self, mensagem: str, f):
         # Obtendo resposta

@@ -31,3 +31,16 @@ class FrameChat(tkinter.Frame):
     def __acao_enviar_mensagem(self, event=None):
         mensagem = self.entrada_texto.get()
         self.controlador.enviar_mensagem(mensagem, lambda mensagens: self.__adicionar_mensagens_no_historico(mensagens))
+
+    def set_cursor(self, state):
+        # Configurando cursor no frame
+        self.config(cursor=state)
+        self.update()
+
+        # Configurando cursor na entrada de texto
+        self.entrada_texto.config(cursor=state)
+        self.entrada_texto.update()
+
+        # Configurando cursor no histório de chat
+        self.historico.config(cursor=state)
+        self.historico.update()

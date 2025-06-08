@@ -21,19 +21,31 @@ class JanelaPrincipal(tkinter.Tk):
         self.geometry(f"{screen_width}x{screen_height}+0+0")
 
         # Barra de menu
-        barra_menu = tkinter.Menu(self)
+        self.barra_menu = tkinter.Menu(self)
 
         # Menu arquivo
-        menu_arquivo = tkinter.Menu(barra_menu, tearoff=0)
+        menu_arquivo = tkinter.Menu(self.barra_menu, tearoff=0)
         menu_arquivo.add_command(
             label="Abrir pasta com arquivos PDF",
             command=lambda: self.controlador.abrir_pasta_pdf()
         )
 
-        barra_menu.add_cascade(label="Arquivo", menu=menu_arquivo)
+        self.barra_menu.add_cascade(label="Arquivo", menu=menu_arquivo)
 
-        self.config(menu=barra_menu)
+        self.config(menu=self.barra_menu)
 
         # Frame do Chat
         self.frame_chat = FrameChat(self, self.controlador)
         self.frame_chat.pack(padx=10, pady=10, fill="both", expand=True)
+
+    def set_cursor(self, state):
+        # Configurando o cursor na janela
+        self.config(cursor=state)
+        self.update()
+
+        # Configurando o cursor no frame
+        self.frame_chat.set_cursor(state)
+
+        # Configurando o cursor na barra de menu
+        self.barra_menu.config(cursor=state)
+        self.barra_menu.update()
