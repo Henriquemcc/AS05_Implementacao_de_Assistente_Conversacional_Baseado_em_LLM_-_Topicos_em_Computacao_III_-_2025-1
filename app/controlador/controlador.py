@@ -23,11 +23,17 @@ class Controlador:
         # Obtendo caminho das pastas
         self.caminho = filedialog.askdirectory(title="Pasta com documentos PDF")
 
+        # Exibindo mensagem na barra de status
+        self.janela_principal.barra_status_var.set("Indexando documentos")
+
         # Exibindo cursor de relógio
         self.janela_principal.set_cursor("watch")
 
         # Indexando arquivos PDF
         self.assistente_conversacional.indexar_documentos_pdf(self.caminho)
+
+        # Exibindo mensagem na barra de status
+        self.janela_principal.barra_status_var.set("Pronto")
 
         # Exibindo cursor padrão
         self.janela_principal.set_cursor("")
