@@ -41,7 +41,7 @@ class AssistenteConversacional:
 
     def __del__(self):
         # Apagando namespace
-        self.pinecone.delete(delete_all=True, namespace=self.pinecone_index_name_space)
+        self.pinecone_index.delete(delete_all=True, namespace=self.pinecone_index_name_space)
 
     def __inicializar_modelo_pretreinado(self, huggingfacehub_api_key):
         login(huggingfacehub_api_key)
