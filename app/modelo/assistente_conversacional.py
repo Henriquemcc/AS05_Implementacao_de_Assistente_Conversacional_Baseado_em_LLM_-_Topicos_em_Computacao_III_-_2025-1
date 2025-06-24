@@ -1,13 +1,13 @@
-import re
-
-from huggingface_hub import login
-from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
-from pinecone import Pinecone
-from PyPDF2 import PdfReader
-import time
 import os
 import random
 import string
+import time
+
+import nltk
+from PyPDF2 import PdfReader
+from huggingface_hub import login
+from pinecone import Pinecone
+from transformers import pipeline
 
 
 def gerar_random_string(length = 10) -> str:
@@ -20,14 +20,18 @@ def ler_texto_pdf(caminho: str) -> str:
         texto += pagina.extract_text() + "\n"
     return texto
 
-def dividir_em_chunks(texto, tamanho_max=500):
+def dividir_em_chunks_semantic(texto, tamanho_max=500):
+    sentencas = nltk.tokenize.sent_tokenize(texto)
     chunks = []
-    paragrafos = re.split(r'\n\s*\n', texto)
-    for paragrafo in paragrafos:
-        palavras = paragrafo.split()
-        for i in range(0, len(palavras), tamanho_max):
-            chunk = " ".join(palavras[i:i+tamanho_max])
-            chunks.append(chunk)
+    atual = ""
+    for s in sentencas:
+        if len(atual.split()) + len(s.split()) <= tamanho_max:
+            atual += " " + s
+        else:
+            chunks.append(atual.strip())
+            atual = s
+    if atual:
+        chunks.append(atual.strip())
     return chunks
 
 class AssistenteConversacional:
@@ -45,7 +49,7 @@ class AssistenteConversacional:
 
     def __inicializar_modelo_pretreinado(self, huggingfacehub_api_key):
         login(huggingfacehub_api_key)
-        model_name = "bert-large-uncased-whole-word-masking"
+        model_name = "deepset/roberta-base-squad2"
         self.chatbot = pipeline("question-answering", model=model_name)
 
     def __inicializar_pinecone(self, pinecone_api_key):
@@ -66,7 +70,7 @@ class AssistenteConversacional:
             if arquivo.lower().endswith(".pdf"):
                 caminho_pdf = os.path.join(pasta, arquivo)
                 texto = ler_texto_pdf(caminho_pdf)
-                chunks = dividir_em_chunks(texto)
+                chunks = dividir_em_chunks_semantic(texto)
                 for index, chunk in enumerate(chunks):
                     self.indexar_documentos([{
                         "id": "{}-{}".format(arquivo, index),
@@ -87,10 +91,14 @@ class AssistenteConversacional:
         resultados = []
         for resultado in resultados_pinecone['result']['hits']:
             resultados.append(resultado['fields']['text'])
-        resultados = " ".join(resultados)
-        print("Resultados:\n{}".format(resultados))
+        print("Resultados:\n{}".format(str(resultados)))
 
         # Fazendo o ChatBot responder
-        resposta =  self.chatbot(question = pergunta, context = resultados)
-
-        return resposta['answer']
+        melhor_resposta = None
+        maior_score = 0
+        for contexto in resultados:
+            resposta = self.chatbot(question=pergunta, context=contexto)
+            if resposta['score'] > maior_score:
+                maior_score = resposta['score']
+                melhor_resposta = resposta['answer']
+        return melhor_resposta
