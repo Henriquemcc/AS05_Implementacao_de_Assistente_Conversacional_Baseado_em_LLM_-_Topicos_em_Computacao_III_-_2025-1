@@ -45,7 +45,7 @@ class AssistenteConversacional:
 
     def __inicializar_modelo_pretreinado(self, huggingfacehub_api_key):
         login(huggingfacehub_api_key)
-        model_name = "distilbert-base-uncased-distilled-squad"
+        model_name = "bert-large-uncased-whole-word-masking"
         self.chatbot = pipeline("question-answering", model=model_name)
 
     def __inicializar_pinecone(self, pinecone_api_key):
@@ -88,6 +88,7 @@ class AssistenteConversacional:
         for resultado in resultados_pinecone['result']['hits']:
             resultados.append(resultado['fields']['text'])
         resultados = " ".join(resultados)
+        print("Resultados:\n{}".format(resultados))
 
         # Fazendo o ChatBot responder
         resposta =  self.chatbot(question = pergunta, context = resultados)
