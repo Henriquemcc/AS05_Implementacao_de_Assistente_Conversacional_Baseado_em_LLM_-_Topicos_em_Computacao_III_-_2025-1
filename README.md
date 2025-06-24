@@ -78,4 +78,4 @@ Neste vídeo é possível ver a aplicação em funcionamento:
 
 ### Capturas de Tela
 
-![Captura de tela do Assistente Conversacional, mostrando um exemplo de conversa](screenshots/vlcsnap-2025-06-24-18h17m50s983.png)
+![Captura de tela do Assistente Conversacional, mostrando um exemplo de conversa](screenshots/Captura%20de%20tela%20de%202025-06-24%2018-28-51.png)
