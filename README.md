@@ -72,7 +72,7 @@ E uma janela do programa se abrirá.
 
 ### Vídeo
 
-Neste vídeo é possível ver a aplicação em funcionamento:
+[Neste vídeo](https://youtu.be/sO1tvquSQWM) é possível ver a aplicação em funcionamento:
 
 [![Demonstração do Assistente Conversacional - Tópicos em Computação III - Ciência da Computação](https://img.youtube.com/vi/sO1tvquSQWM/0.jpg)](https://youtu.be/sO1tvquSQWM)
 

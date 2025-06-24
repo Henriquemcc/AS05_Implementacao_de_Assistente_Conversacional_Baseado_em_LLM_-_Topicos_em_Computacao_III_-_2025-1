@@ -72,7 +72,7 @@ And a program window will open.
 
 ### Video
 
-In this video (in Portuguese) you can see the application in operation:
+In [this video](https://youtu.be/sO1tvquSQWM) (in Portuguese) you can see the application in operation:
 
 [![Demonstração do Assistente Conversacional - Tópicos em Computação III - Ciência da Computação](https://img.youtube.com/vi/sO1tvquSQWM/0.jpg)](https://youtu.be/sO1tvquSQWM)
 
