@@ -90,9 +90,6 @@ class AssistenteConversacional:
         resultados = " ".join(resultados)
 
         # Fazendo o ChatBot responder
-        resposta =  self.chatbot(
-            {'question': pergunta,
-             'context': resultados
-        })
+        resposta =  self.chatbot(question = pergunta, context = resultados)
 
         return resposta['answer']
