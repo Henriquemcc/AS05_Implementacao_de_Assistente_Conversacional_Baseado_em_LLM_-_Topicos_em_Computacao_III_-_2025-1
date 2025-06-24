@@ -67,3 +67,15 @@ python app
 ```
 
 And a program window will open.
+
+## Application in Operation
+
+### Video
+
+In this video (in Portuguese) you can see the application in operation:
+
+[![Demonstração do Assistente Conversacional - Tópicos em Computação III - Ciência da Computação](https://img.youtube.com/vi/sO1tvquSQWM/0.jpg)](https://youtu.be/sO1tvquSQWM)
+
+### Screenshots
+
+![Screenshot of Conversational Assistant, showing an example conversation](screenshots/vlcsnap-2025-06-24-18h17m50s983.png)

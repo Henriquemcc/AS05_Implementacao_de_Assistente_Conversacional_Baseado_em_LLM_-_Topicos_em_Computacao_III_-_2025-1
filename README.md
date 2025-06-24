@@ -67,3 +67,15 @@ python app
 ```
 
 E uma janela do programa se abrirá.
+
+## Aplicação em Funcionamento
+
+### Vídeo
+
+Neste vídeo é possível ver a aplicação em funcionamento:
+
+[![Demonstração do Assistente Conversacional - Tópicos em Computação III - Ciência da Computação](https://img.youtube.com/vi/sO1tvquSQWM/0.jpg)](https://youtu.be/sO1tvquSQWM)
+
+### Capturas de Tela
+
+![Captura de tela do Assistente Conversacional, mostrando um exemplo de conversa](screenshots/vlcsnap-2025-06-24-18h17m50s983.png)
