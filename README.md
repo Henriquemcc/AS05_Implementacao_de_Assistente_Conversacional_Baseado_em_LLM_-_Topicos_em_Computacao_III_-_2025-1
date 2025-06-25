@@ -76,6 +76,6 @@ E uma janela do programa se abrirá.
 
 [![Demonstração do Assistente Conversacional - Tópicos em Computação III - Ciência da Computação](https://img.youtube.com/vi/sO1tvquSQWM/0.jpg)](https://youtu.be/sO1tvquSQWM)
 
-### Capturas de Tela
+### Captura de Tela
 
 ![Captura de tela do Assistente Conversacional, mostrando um exemplo de conversa](screenshots/Captura%20de%20tela%20de%202025-06-24%2018-28-51.png)
