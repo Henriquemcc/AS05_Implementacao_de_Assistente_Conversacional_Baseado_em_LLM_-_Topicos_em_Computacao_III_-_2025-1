@@ -76,6 +76,6 @@ In [this video](https://youtu.be/sO1tvquSQWM) (in Portuguese) you can see the ap
 
 [![Demonstração do Assistente Conversacional - Tópicos em Computação III - Ciência da Computação](https://img.youtube.com/vi/sO1tvquSQWM/0.jpg)](https://youtu.be/sO1tvquSQWM)
 
-### Screenshots
+### Screenshot
 
 ![Screenshot of Conversational Assistant, showing an example conversation](screenshots/vlcsnap-2025-06-24-18h17m50s983.png)
