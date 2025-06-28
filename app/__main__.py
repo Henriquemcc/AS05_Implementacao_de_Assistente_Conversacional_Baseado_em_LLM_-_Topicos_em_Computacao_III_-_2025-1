@@ -1,9 +1,11 @@
 from controlador.controlador import Controlador
 import nltk
+from dotenv import load_dotenv
 
 # Chaves de API
-pinecone_api_key = ""
-huggingfacehub_api_key = ""
+load_dotenv()
+pinecone_api_key = os.getenv("PINECONE_API_KEY")
+huggingfacehub_api_key = os.getenv("HUGGINGFACEHUB_API_KEY")
 
 if __name__ == '__main__':
     # Baixando o Tokenizer
