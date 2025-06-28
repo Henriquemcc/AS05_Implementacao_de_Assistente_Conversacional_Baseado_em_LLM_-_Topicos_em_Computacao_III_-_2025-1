@@ -62,7 +62,7 @@ Abra o arquivo ```.env``` em um editor de texto.
 
 1. Acesse: https://huggingface.co/settings/tokens
 
-Caso não esteja logado no Hugging Face, faça login. Caso não tenha conta, crie uma conta.
+   Caso não esteja logado no Hugging Face, faça login. Caso não tenha conta, crie uma conta.
 
 2. Clique no botão ```Create new token```.
 
@@ -78,7 +78,7 @@ Caso não esteja logado no Hugging Face, faça login. Caso não tenha conta, cri
 
 1. Acesse: https://app.pinecone.io
 
-Caso não esteja logado no Pine Cone, faça login. Caso não tenha conta, crie uma conta.
+   Caso não esteja logado no Pinecone, faça login. Caso não tenha conta, crie uma conta.
 
 2. No canto esquerdo, clique em ```Database``` e depois em ```Indexes```.
 
