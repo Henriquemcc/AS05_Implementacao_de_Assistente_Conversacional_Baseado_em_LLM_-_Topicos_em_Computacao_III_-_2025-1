@@ -68,7 +68,7 @@ Open the ```.env``` file in a text editor.
 
 3. In ``Token name```, type the name of your choice for the API key.
 
-4. Click ````Create token```.
+4. Click ```Create token```.
 
 5. In the prompt that opens, click the ```Copy``` button.
 
