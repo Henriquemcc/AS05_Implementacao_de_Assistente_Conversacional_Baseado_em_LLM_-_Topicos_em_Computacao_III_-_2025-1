@@ -35,10 +35,10 @@ def dividir_em_chunks_semantic(texto, tamanho_max=500):
     return chunks
 
 class AssistenteConversacional:
-    def __init__(self, pinecone_api_key, huggingfacehub_api_key):
+    def __init__(self, pinecone_api_key, huggingfacehub_api_key, pinecone_index_name):
         self.pinecone_index_name_space = gerar_random_string()
         self.pinecone_index = None
-        self.pinecone_index_name = "as05-topicos3"
+        self.pinecone_index_name = pinecone_index_name
         self.pinecone_top_k = 3
         self.__inicializar_modelo_pretreinado(huggingfacehub_api_key)
         self.__inicializar_pinecone(pinecone_api_key)

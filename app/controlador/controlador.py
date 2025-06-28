@@ -5,7 +5,7 @@ from visao.janela_principal import JanelaPrincipal
 from modelo.mensagem import Mensagem
 
 class Controlador:
-    def __init__(self, pinecone_api_key, huggingfacehub_api_key):
+    def __init__(self, pinecone_api_key, huggingfacehub_api_key, pinecone_index_name):
 
         # Caminho da pasta com os arquivos PDF
         self.caminho = None
@@ -14,7 +14,7 @@ class Controlador:
         self.contador_mensagens = 0
 
         # Criando assistente conversacional
-        self.assistente_conversacional = AssistenteConversacional(pinecone_api_key, huggingfacehub_api_key)
+        self.assistente_conversacional = AssistenteConversacional(pinecone_api_key, huggingfacehub_api_key, pinecone_index_name)
 
         # Criando janela principal
         self.janela_principal = JanelaPrincipal(self)
