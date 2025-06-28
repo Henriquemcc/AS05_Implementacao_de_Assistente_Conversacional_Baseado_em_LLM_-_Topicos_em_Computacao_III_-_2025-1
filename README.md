@@ -52,6 +52,48 @@ No shell (Terminal, Prompt de Comando ou PowerShell) dentro da pasta do projeto,
 pip install -r requirements.txt
 ```
 
+### Adicione as chaves de API
+
+Renomeie o arquivo ```.env.sample``` para ```.env```.
+
+Abra o arquivo ```.env``` em um editor de texto.
+
+#### Obtenha a chave de API do Hugging Face:
+
+1. Acesse: https://huggingface.co/settings/tokens
+
+Caso não esteja logado no Hugging Face, faça login. Caso não tenha conta, crie uma conta.
+
+2. Clique no botão ```Create new token```.
+
+3. Em ```Token name```, digite o nome de sua preferência para a chave de API.
+
+4. Clique em ````Create token```.
+
+5. No prompt que foi aberto, clique no botão ```Copy```.
+
+6. No arquivo ```.env```, cole o token á direita de (na mesma linha) ```HUGGINGFACEHUB_API_KEY=```.
+
+#### Obtenha a chave de API do Pinecone:
+
+1. Acesse: https://app.pinecone.io
+
+Caso não esteja logado no Pine Cone, faça login. Caso não tenha conta, crie uma conta.
+
+2. No canto esquerdo, clique em ```Database``` e depois em ```Indexes```.
+
+3. No canto esquerdo, clique em ```API Keys```.
+
+4. Clique no botão ```Create API Key```.
+
+5. No prompt que foi aberto, digite o nome de sua preferência para a chave de API.
+
+6. Clique em ```Create key```.
+
+7. Na barra de texto, clique no botão copiar.
+
+8. No arquivo ```.env```, cole o token á direita de (na mesma linha) ```PINECONE_API_KEY=```.
+
 ### Execute o programa
 
 No shell (Terminal, Prompt de Comando ou PowerShell) dentro da pasta do projeto, digite:
