@@ -52,7 +52,7 @@ No shell (Terminal, Prompt de Comando ou PowerShell) dentro da pasta do projeto,
 pip install -r requirements.txt
 ```
 
-### Adicione as chaves de API
+### Adicione as variáveis de ambiente
 
 Renomeie o arquivo ```.env.sample``` para ```.env```.
 
@@ -93,6 +93,16 @@ Abra o arquivo ```.env``` em um editor de texto.
 7. Na barra de texto, clique no botão copiar.
 
 8. No arquivo ```.env```, cole o token á direita de (na mesma linha) ```PINECONE_API_KEY=```.
+
+#### Obtenha o nome do índice do Pinecone
+
+1. Acesse: https://app.pinecone.io
+
+2. No canto esquerdo, clique em ```Indexes```.
+
+3. Caso não tenha nenhum índice, clique no botão ```Create index```. Digite o nome desejado para índice, e clique em ```Create index``` (no canto inferior direito).
+
+4. No arquivo ```.env```, cloe o índice á direita de (na mesma linha) ```PINECONE_INDEX_NAME=```.
 
 ### Execute o programa
 
