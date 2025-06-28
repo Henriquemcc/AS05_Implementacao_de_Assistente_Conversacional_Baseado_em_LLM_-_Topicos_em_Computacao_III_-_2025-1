@@ -100,9 +100,9 @@ Open the ```.env``` file in a text editor.
 
 2. In the left corner, click on ```Indexes```.
 
-3. If you don't have any indexes, click on the ```Create index``` button. Type the desired name for the index, and click on ```Create index``` (in the bottom right corner).
+3. Click the ```Create index``` button. Type the desired name for the index (this name will be used in step 4), and click ```Create index``` (in the lower right corner).
 
-4. In the ```.env``` file, paste the index to the right of (on the same line) ```PINECONE_INDEX_NAME=```.
+4. In the ```.env``` file, type the name of the index you created, to the right of (on the same line) ```PINECONE_INDEX_NAME=```.
 
 ### Run the program
 
