@@ -80,25 +80,23 @@ Open the ```.env``` file in a text editor.
 
    If you are not logged into Pinecone, log in. If you do not have an account, create an account.
 
-2. In the left corner, click on ```Database``` and then on ```Indexes```.
+2. In the left corner, click on ```API Keys```.
 
-3. In the left corner, click on ```API Keys```.
+3. Click on the ```Create API Key``` button.
 
-4. Click on the ```Create API Key``` button.
+4. In the prompt that opens, type the name of your preference for the API key.
 
-5. In the prompt that opens, type the name of your preference for the API key.
+5. Click on ```Create key```.
 
-6. Click on ```Create key```.
+6. In the text bar, click on the copy button.
 
-7. In the text bar, click on the copy button.
-
-8. In the ```.env``` file, paste the token to the right of (on the same line) ```PINECONE_API_KEY=```.
+7. In the ```.env``` file, paste the token to the right of (on the same line) ```PINECONE_API_KEY=```.
 
 #### Get the Pinecone index name
 
 1. Go to: https://app.pinecone.io
 
-2. In the left corner, click on ```Indexes```.
+2. In the left corner, click on ```Database``` and then on ```Indexes```.
 
 3. Click the ```Create index``` button. Type the desired name for the index (this name will be used in step 4), and click ```Create index``` (in the lower right corner).
 
