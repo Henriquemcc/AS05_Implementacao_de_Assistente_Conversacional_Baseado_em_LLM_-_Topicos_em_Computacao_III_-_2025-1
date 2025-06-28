@@ -52,7 +52,7 @@ In the shell (Terminal, Command Prompt, or PowerShell) inside the project folder
 pip install -r requirements.txt
 ```
 
-### Add API Keys
+### Add environment variables
 
 Rename the ```.env.sample``` file to ```.env```.
 
@@ -62,11 +62,11 @@ Open the ```.env``` file in a text editor.
 
 1. Go to: https://huggingface.co/settings/tokens
 
-If you are not logged into Hugging Face, log in. If you do not have an account, create an account.
+   If you are not logged into Hugging Face, log in. If you do not have an account, create an account.
 
 2. Click the ```Create new token``` button.
 
-3. In ``Token name```, type in your preferred name for the API key.
+3. In ``Token name```, type the name of your choice for the API key.
 
 4. Click ````Create token```.
 
@@ -78,7 +78,7 @@ If you are not logged into Hugging Face, log in. If you do not have an account, 
 
 1. Go to: https://app.pinecone.io
 
-If you are not logged into Pine Cone, log in. If you do not have an account, create an account.
+   If you are not logged into Pinecone, log in. If you do not have an account, create an account.
 
 2. In the left corner, click on ```Database``` and then on ```Indexes```.
 
@@ -93,6 +93,16 @@ If you are not logged into Pine Cone, log in. If you do not have an account, cre
 7. In the text bar, click on the copy button.
 
 8. In the ```.env``` file, paste the token to the right of (on the same line) ```PINECONE_API_KEY=```.
+
+#### Get the Pinecone index name
+
+1. Go to: https://app.pinecone.io
+
+2. In the left corner, click on ```Indexes```.
+
+3. If you don't have any indexes, click on the ```Create index``` button. Type the desired name for the index, and click on ```Create index``` (in the bottom right corner).
+
+4. In the ```.env``` file, paste the index to the right of (on the same line) ```PINECONE_INDEX_NAME=```.
 
 ### Run the program
 
